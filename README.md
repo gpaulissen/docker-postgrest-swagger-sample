@@ -17,7 +17,7 @@ So the stack for this example is:
 
 The following tutorials and web sites were helpful in making this example
 
-* The postgREST tutorials: [tutorial0](http://postgrest.org/en/v7.0.0/tutorials/tut0.html) and [tutorial1](http://postgrest.org/en/v7.0.0/tutorials/tut1.html1)
+* The postgREST tutorials: [tutorial0](https://postgrest.org/en/stable/tutorials/tut0.html) and [tutorial1](https://postgrest.org/en/stable/tutorials/tut1.html)
 * [postgREST docker config](https://hub.docker.com/r/postgrest/postgrest/)
 * [jwt.io](https://jwt.io/)
 

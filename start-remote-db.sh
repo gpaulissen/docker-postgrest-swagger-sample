@@ -43,4 +43,6 @@ input_variable PGRST_DB_ANON_ROLE "PostgreSQL anonymous role"       web_anon
 # These environment variables are used in docker-compose-remote-db.yml
 export PGRST_DB_URI PGRST_DB_SCHEMA PGRST_DB_ANON_ROLE
 
+set | grep '^PGRST'
+
 exec docker-compose --file docker-compose-remote-db.yml up --build --force-recreate
