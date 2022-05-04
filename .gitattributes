@@ -1,0 +1,11 @@
+# Autodetect text files
+* text=auto
+
+# ...Unless the name matches the following
+# overriding patterns
+
+*.png binary
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sh text eol=lf
+
