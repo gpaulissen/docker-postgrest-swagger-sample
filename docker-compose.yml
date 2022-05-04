@@ -8,8 +8,9 @@ services:
             POSTGRES_DB: todo_db
             POSTGRES_USER: todo_admin
             POSTGRES_PASSWORD: todo_password
+            PGDATA: /var/lib/postgresql/data/pgdata
         volumes:
-            - "./postgres/pgdata:/var/lib/postgresql/data" # persist the data
+            - "./postgres/pgdata:/var/lib/postgresql/data/pgdata" # persist the data
             - "./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d" # execute sql in here (see https://hub.docker.com/_/postgres)
     postgrest:
         image: postgrest/postgrest
@@ -20,6 +21,7 @@ services:
             PGRST_DB_SCHEMA: api
             PGRST_DB_ANON_ROLE: web_anon
             PGRST_JWT_SECRET: ${TODO_SECRET}
+            PGRST_OPENAPI_SERVER_PROXY_URI: ${PGRST_OPENAPI_SERVER_PROXY_URI}
         depends_on:
             - db
     postgrest-proxy:
@@ -39,4 +41,4 @@ services:
         depends_on: 
             - postgrest-proxy
         environment:
-            API_URL: http://localhost:3001/
+            API_URL: ${PGRST_OPENAPI_SERVER_PROXY_URI}
